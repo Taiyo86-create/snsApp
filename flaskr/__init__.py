@@ -15,3 +15,4 @@ migrate = Migrate()
 def create_app():
     app = Flask(__name__)
     app.config['SECRET KEY'] = 'SNS'
+    app.config['SQLALCHEMY_DATABASE_URL'] = \
