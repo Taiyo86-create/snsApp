@@ -24,3 +24,17 @@ class User(UserMixin, db.Model):
     is_active = db.Column(db.Boolean, unique=False, default=False)
     created_at = db.Column(db.DataTime, default=datetime.now)
     update_at = db.Column(db.DataTime, default=datetime.now)
+    
+class PasswordResetToken(db.Model):
+    __tablename__ = "password_reset_tokens"
+    id = db.Column(db.Integer, primary_key=True)
+    token = db.Column(
+        db.String(64),
+        unique=True,
+        index=True,
+        server_default=str(uuid4)
+    )
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', nullable=False))
+    expire_at = db.Column(db.DataTime, default=datetime.now)
+    created_at = db.Column(db.DataTime, default=datetime.now)
+    update_at = db.Column(db.DataTime, default=datetime.now)
