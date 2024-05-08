@@ -22,3 +22,7 @@ def home():
 def logout_user():
     logout_user()
     return redirect(url_for('app.home'))
+
+@bp.route('/login', method=['GET', 'POST'])
+def login():
+    form = LoginForm(request.form)
