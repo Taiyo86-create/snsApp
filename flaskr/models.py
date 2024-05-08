@@ -13,3 +13,11 @@ def load_user(user_id):
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
     
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(64), index=True)
+    email = db.Column(db.String(64), unique=True, index=True)
+    password = db.Column(
+        db.String(128),
+        default = generate_password_hash('snsflaskapp')
+        )
+    picture_path = db.Column(db.Text)
