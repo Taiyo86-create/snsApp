@@ -21,3 +21,4 @@ class RegisterForm(Form):
     submit = SubmitField('登録')
     
     def validate_email(self, field):
+        if 

@@ -25,6 +25,10 @@ class User(UserMixin, db.Model):
     created_at = db.Column(db.DataTime, default=datetime.now)
     update_at = db.Column(db.DataTime, default=datetime.now)
     
+    @classmethod
+    def select_user_by_email(cls, email):
+        return cls.query.filter_by(email=email).first()
+    
 class PasswordResetToken(db.Model):
     __tablename__ = "password_reset_tokens"
     id = db.Column(db.Integer, primary_key=True)
@@ -38,3 +42,5 @@ class PasswordResetToken(db.Model):
     expire_at = db.Column(db.DataTime, default=datetime.now)
     created_at = db.Column(db.DataTime, default=datetime.now)
     update_at = db.Column(db.DataTime, default=datetime.now)
+    
+    
