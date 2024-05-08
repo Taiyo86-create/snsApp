@@ -21,3 +21,6 @@ class User(UserMixin, db.Model):
         default = generate_password_hash('snsflaskapp')
         )
     picture_path = db.Column(db.Text)
+    is_active = db.Column(db.Boolean, unique=False, default=False)
+    created_at = db.Column(db.DataTime, default=datetime.now)
+    update_at = db.Column(db.DataTime, default=datetime.now)
