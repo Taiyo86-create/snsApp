@@ -12,6 +12,10 @@ from flaskr import db
 
 from os import path
 
+from flaskr.forms import (
+    LoginForm, RegisterForm
+)
+    
 bp = Blueprint('app', __name__, url_prefix='')
 
 @bp.route('/')

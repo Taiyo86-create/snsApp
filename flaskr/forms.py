@@ -21,4 +21,5 @@ class RegisterForm(Form):
     submit = SubmitField('登録')
     
     def validate_email(self, field):
-        if 
+        if User.select_user_by_email(field.data):
+            raise ValidationError('メールアドレスはすでに使われています')
