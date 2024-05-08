@@ -11,3 +11,5 @@ from flaskr.models import(
 from flaskr import db
 
 from os import path
+
+bp = Blueprint('app', __name__, url_prefix='')
